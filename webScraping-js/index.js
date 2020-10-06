@@ -4,7 +4,7 @@ const fs = require('fs');
 (async () => {
     const browser = await puppeteer.launch({ headless: false });
     const page = await browser.newPage();
-    await page.goto('https://instagram.com/lindaines');
+    await page.goto('https://instagram.com/');
     await page.click('.sqdOP.L3NKy.y3zKF');
     await page.type('.XTCLo.x3qfX','teste')
 
