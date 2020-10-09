@@ -1,0 +1,46 @@
+body {
+    margin: auto;
+    max-width: 1120px;
+    max-height: 100vh;
+}
+
+.header {
+    background-color: #6b6b6b;
+}
+
+.header form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.header form input {
+    font-size: 15px;
+    margin: 1rem;
+    padding: .3rem;
+    border-radius: .3rem;
+}
+
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    
+}
+
+.container li {
+    list-style: none;
+    border-radius: .8rem;
+    box-shadow: inset 0 0 1em #5c5c5c, 0 0 1em #6b6b6b;;
+}
+
+.container li img {
+    width: 100%;
+    height: 100%;
+    border-radius: .8rem;
+    object-fit: cover;
+}
