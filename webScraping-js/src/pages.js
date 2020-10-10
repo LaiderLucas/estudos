@@ -1,9 +1,7 @@
-const scrapping  = require('./scrapping');
-
 async function index(req, res){
-    return res.render("index.html")
-    
-    
+  const a = "teste"
+    return res.render("index.html", {name: a} )
+
 }
 
 module.exports = {

@@ -11,8 +11,7 @@
     if( htmlList === "") {
         htmlList = "<p>Conta privada ou sem fotos!!<p/>"
     }
-    console.log(htmlList)
-    
+    console.log(htmlList)    
     // adicionar os elementos no HTML
 
     document.querySelector('.container').innerHTML = htmlList;

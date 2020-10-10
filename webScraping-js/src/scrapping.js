@@ -2,19 +2,31 @@ const puppeteer = require('puppeteer');
 const fs = require('fs');
 
 async function scrapping(req, res) {
+   
     const profile = req.body.profile
 
-    const browser = await puppeteer.launch({ headless: false });
-    const page = await browser.newPage();
-    await page.goto(`https://instagram.com/${profile}`);
-    if (await page.$('.VnYfv') !== null) 
-    fs.writeFile('public/instagram.json', JSON.stringify([], null, 2), err => {
-        if (err) throw new Error('something went wrong' + err)
-        console.log('weel done!----')
-    });
-    else await evaluate(page) ;
+    const browser = await puppeteer.launch({ headless: true });
 
-    async function evaluate(){
+    const page = await browser.newPage();
+
+    await page.goto(`https://instagram.com/${profile}`);
+
+    if (await page.$('.VnYfv') !== null) {
+
+        fs.writeFile('src/instagram.json', JSON.stringify([], null, 2), err => {
+            if (err) throw new Error('something went wrong' + err)
+            console.log('weel done!----')
+            var profileNotExist = true
+            return res.render('index.html', { profileNotExist })
+        });
+
+    } else {
+
+        await evaluate(page);
+
+    }
+
+    async function evaluate() {
         const imgList = await page.evaluate(() => {
             // isso é executado dentro do browser
 
@@ -34,18 +46,13 @@ async function scrapping(req, res) {
             return imgList
         });
 
-        fs.writeFile('public/instagram.json', JSON.stringify(imgList, null, 2), err => {
+        fs.writeFile('src/instagram.json', JSON.stringify(imgList, null, 2), err => {
             if (err) throw new Error('something went wrong' + err)
-            console.log('weel done!')
+            console.log("weel done!")
+            console.log(imgList)
+            return res.render('index.html', { imgList })
         })
-    }
-
-    
-    
-    return res.redirect('/')
-
-};
-
+    }};
 
 module.exports = {
     scrapping
