@@ -1,22 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WebScrapping Instagram</title>
-    <link rel="stylesheet" href="/style.css">,
+    <link rel="stylesheet" href="/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div class="header">
         <form action="scrapping" method="post">
-            <div class="inputProfile">
-                <span>@</span>
-                <input type="text" name="profile" id="profile" required>
-            </div>
-
+            <input type="text" name="profile" id="profile" required>
 
             <button type="submit" id="search" name="search">
                 Pesquisar
@@ -24,10 +19,28 @@
         </form>
     </div>
 
-    <div class="content">
+    <div class="container">
 
+        {%if profileNotExist %}
+            <p>Perfil não Existente</p>
+        {%else%}
+
+            {%if imgList == "" %}
+
+                <p>Perfil Sem imagens ou Privado</p>
+
+            {%else%}
+
+                {%for img in imgList%}
+
+                    <li><img src="{{img.src}}"></li>
+
+                {%endfor%}
+
+            {%endif%}
+
+        {%endif%}
     </div>
-<script src="script.js"></script>
 </body>
 
 </html>

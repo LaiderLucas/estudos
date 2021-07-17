@@ -14,5 +14,5 @@ server
 .use(express.urlencoded({ extended: true}))
 .use(express.static("public"))
 .get("/",index)
-.post("/scrapping",scrapping)
+.post("/scrapping", scrapping)
 .listen(5000)

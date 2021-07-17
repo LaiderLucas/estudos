@@ -15,9 +15,8 @@ async function scrapping(req, res) {
 
         fs.writeFile('src/instagram.json', JSON.stringify([], null, 2), err => {
             if (err) throw new Error('something went wrong' + err)
-            console.log('weel done!----')
             var profileNotExist = true
-            return res.render('index.html', { profileNotExist })
+            return res.render('scrapping.html', { profileNotExist })
         });
 
     } else {
@@ -48,9 +47,7 @@ async function scrapping(req, res) {
 
         fs.writeFile('src/instagram.json', JSON.stringify(imgList, null, 2), err => {
             if (err) throw new Error('something went wrong' + err)
-            console.log("weel done!")
-            console.log(imgList)
-            return res.render('index.html', { imgList })
+            return res.render('scrapping.html', { imgList })
         })
     }};
 

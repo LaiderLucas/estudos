@@ -1,10 +1,12 @@
 body {
+    font-family: 'Ubuntu', sans-serif;
     margin: auto;
     max-width: 1120px;
     max-height: 100vh;
 }
 
 .header {
+    margin: .5rem;
     background-color: #6b6b6b;
 }
 
@@ -17,12 +19,29 @@ body {
     margin-bottom: 1rem;
 }
 
-.header form input {
-    font-size: 15px;
+.header form .inputProfile {
+    display: flex;
     margin: 1rem;
-    padding: .3rem;
     border-radius: .3rem;
 }
+
+.header form .inputProfile span {
+    font-size: 15px;
+    padding: .3rem;
+    padding-right: 0;
+    background-color: white;
+    border: none;
+    border-radius: .3rem 0 0 .3rem;
+}
+
+.header form .inputProfile input {
+    font-size: 15px;
+    padding: .3rem;
+    padding-left: 0;
+    border-radius: 0 .3rem .3rem 0;
+    border: none ;
+}
+
 
 
 .container {

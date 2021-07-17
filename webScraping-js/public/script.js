@@ -1,3 +1,11 @@
+
+const input = document.querySelector('#profile')
+
+input.addEventListener("keypress", () => {
+    alert()
+})
+
+/*
 (async() => {
     // abrindo o arquivo json criado com a lista das imagens
     const response = await fetch('instagram.json');
@@ -15,4 +23,4 @@
     // adicionar os elementos no HTML
 
     document.querySelector('.container').innerHTML = htmlList;
-})();
+})();*/
