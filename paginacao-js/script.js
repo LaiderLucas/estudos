@@ -4,6 +4,7 @@ const data = Array.from( {length: 100})
 
 let perPage = 5
 const state = {
+    
     page: 1,
     perPage,
     totalPage: Math.ceil(data.length / perPage),
